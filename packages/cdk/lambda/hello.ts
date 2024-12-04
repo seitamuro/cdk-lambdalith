@@ -13,13 +13,11 @@ app.get("/hello", async (c) => {
   return c.json({ message: "Hello, world!" });
 });
 
-app.use("/user-status", auth);
-app.get("/user-status", async (c) => {
+app.get("/user-status", auth, async (c) => {
   return c.json({ status: c.req});
 });
 
-app.use("/hello-with-auth", auth);
-app.get("/hello-with-auth", async (c) => {
+app.get("/hello-with-auth", auth, async (c) => {
   return c.json({ message: "Hello, world! You're authorized!" });
 })
 
